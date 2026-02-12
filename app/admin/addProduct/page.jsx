@@ -72,7 +72,7 @@ const page = () => {
                 title: "",
                 description: "",
                 category: "Startup",
-                author: "Alex Bennett",
+                author: "Nishwan Kumar",
                 authorImg: "/author_img.png",
             });
             }else {
