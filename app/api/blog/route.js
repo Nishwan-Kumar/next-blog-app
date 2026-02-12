@@ -3,6 +3,8 @@ import { NextResponse } from "next/server"
 import imageKit from "@/lib/config/imagekit";
 import BlogModel from "@/lib/models/BlogModel";
 
+export const runtime = "nodejs";
+
 
 export async function GET(request) {
     try {

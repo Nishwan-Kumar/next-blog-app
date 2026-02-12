@@ -2,6 +2,7 @@ import { connectDB } from "@/lib/config/db";
 import EmailModel from "@/lib/models/EmailModel";
 import { NextRequest, NextResponse } from "next/server";
 
+export const runtime = "nodejs";
 
 export async function POST(request){
     await connectDB();
