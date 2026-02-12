@@ -72,7 +72,7 @@ const page = () => {
                 title: "",
                 description: "",
                 category: "Startup",
-                author: "Nishwan Kumar",
+                author: "Heisenberg",
                 authorImg: "/author_img.png",
             });
             }else {
