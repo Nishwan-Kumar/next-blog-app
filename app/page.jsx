@@ -4,7 +4,7 @@ import Header from "@/Components/Header";
 import { Subscribe } from "@/Components/Subscribe";
 
 async function getBlogs() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXTAUTH_URL || 'http://localhost:3000';
   
   try {
     const res = await fetch(`${baseUrl}/api/blog?public=true`, { cache: 'no-store' });
