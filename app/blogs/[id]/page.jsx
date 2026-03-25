@@ -33,8 +33,23 @@ const Page = () => {
             <Header className='-mt-5'/>
             <div className='text-center my-25 mt-15'>
                 <h1 className='text-center text-5xl font-semibold max-w-175 mx-auto'>{data.title}</h1>
-                <Image className='mx-auto mt-6 border border-white rounded-full' src={data.authorImg} alt='' width={60} height={60}/>
-                <p className='mt-1 pb-2 text-lg max-w-185 mx-auto'>{data.author}</p>
+                {/* LIVE AUTHOR IMAGE: Uses populated data first */}
+                <Image 
+                    className='mx-auto mt-6 border-4 border-white rounded-full aspect-square object-cover shadow-sm' 
+                    src={data.authorId?.image || data.authorImg || assets.profile_icon} 
+                    alt='Author' 
+                    width={100} 
+                    height={100} 
+                />
+                
+                {/* LIVE AUTHOR NAME: Uses populated data first */}
+                <p className='mt-3 pb-2 text-lg font-medium text-gray-800'>
+                    By {data.authorId?.name || data.author}
+                </p>
+                
+                <p className='text-sm text-gray-500 uppercase tracking-widest'>
+                    {data.category}
+                </p>
             </div>
 
         </div>

@@ -1,5 +1,8 @@
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Providers from "./provider";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -17,7 +20,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${outfit}`}
       >
-        {children}
+        <Providers>
+          <ToastContainer theme="dark" />
+          {children}
+        </Providers>
       </body>
     </html>
   );

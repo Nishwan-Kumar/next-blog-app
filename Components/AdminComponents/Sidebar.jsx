@@ -1,7 +1,9 @@
+"use client"
 import { assets } from '@/Assets/assets'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { signOut } from 'next-auth/react'
 
 const Sidebar = () => {
   return (
@@ -29,6 +31,13 @@ const Sidebar = () => {
                     <Image src={assets.email_icon} alt='' width={28} />
                     <p>Subscriptions</p>
                 </Link>
+
+                <button 
+                    onClick={() => signOut({ callbackUrl: '/' })} 
+                    className='mt-10 flex items-center border border-black gap-3 font-medium px-3 py-2 bg-red-50 text-red-600 shadow-[-5px_5px_0px_#000000] active:bg-red-200 w-full'
+                >
+                    <p className='text-center w-full'>Logout</p>
+                </button>
             </div>
 
             

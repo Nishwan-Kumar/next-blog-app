@@ -1,6 +1,7 @@
 import { assets } from '@/Assets/assets'
 import Image from 'next/image'
 import React from 'react'
+import Link from 'next/link'
 
 const BlogTableItem = ({mongoId,authorImg,title,author,date,deleteFunc}) => {
 
@@ -16,8 +17,22 @@ const BlogTableItem = ({mongoId,authorImg,title,author,date,deleteFunc}) => {
         <td className='px-6 py-4 whitespace-nowrap'>
             {date}
         </td>
-        <td className='px-6 py-4 cursor-pointer' onClick={()=>deleteFunc(mongoId)}>
-            X
+        <td className='px-6 py-4 cursor-pointer flex gap-4'>
+            {/* NEW EDIT BUTTON */}
+            <Link 
+                href={`/admin/editBlog/${mongoId}`} 
+                className='text-blue-500 hover:text-blue-700 font-medium cursor-pointer'
+            >
+                Edit
+            </Link>
+            
+            {/* EXISTING DELETE BUTTON */}
+            <p 
+                onClick={() => deleteFunc(mongoId)} 
+                className='text-red-500 hover:text-red-700 font-medium cursor-pointer'
+            >
+                x
+            </p>
         </td>
     </tr>
   )
