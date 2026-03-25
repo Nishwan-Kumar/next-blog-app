@@ -38,14 +38,22 @@ export async function POST(request) {
         });
 
         const mailOptions = {
-            from: process.env.EMAIL_USER,
+            from:`"Blogger Support" <${process.env.EMAIL_USER}>`,
             to: user.email,
             subject: "Password Reset Request - Blog App",
             html: `
-                <h1>You requested a password reset</h1>
-                <p>Click the link below to reset your password. This link is valid for 15 minutes.</p>
-                <a href="${resetUrl}" clicktracking="off">${resetUrl}</a>
-            `,
+                <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+                <h2>Password Reset Request</h2>
+                <p>You requested to reset your password for Blogger.</p>
+                <p>Please click the button below to set a new password. This link is valid for 15 minutes:</p>
+                <a href="${resetUrl}" 
+                style="background-color: #000000; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">
+                Reset Password
+                </a>
+                <p>If the button doesn't work, copy and paste this link into your browser:</p>
+                <p><a href="${resetUrl}">${resetUrl}</a></p>
+                <p>If you did not request this, please ignore this email.</p>
+            </div>`
         };
 
         await transporter.sendMail(mailOptions);
